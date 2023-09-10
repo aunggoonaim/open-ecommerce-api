@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\OpenCommerce.Application\OpenCommerce.Application.csproj" />
+        <ProjectReference Include="..\OpenCommerce.Persistence\OpenCommerce.Persistence.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="Middleware\" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Middleware\" />
+    </ItemGroup>
+
+</Project>
