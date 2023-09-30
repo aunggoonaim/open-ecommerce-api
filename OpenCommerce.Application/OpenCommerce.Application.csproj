@@ -1,29 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\OpenCommerce.Domain\OpenCommerce.Domain.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\OpenCommerce.Domain\OpenCommerce.Domain.csproj" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
-    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.6.0" />
-    <PackageReference Include="MediatR" Version="12.0.0" />
-    <PackageReference Include="Dapper" Version="2.0.143" />
-    <PackageReference Include="ClosedXML" Version="0.102.0" />
-    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
-    <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
-    <PackageReference Include="ExcelNumberFormat" Version="1.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.13" />
-    <PackageReference Include="MongoDB.Driver" Version="2.20.0" />
-    <PackageReference Include="MongoDB.Driver.Core" Version="2.20.0" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.32.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.9" />
-  </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+      <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.7.1" />
+      <PackageReference Include="MediatR" Version="12.0.1" />
+    </ItemGroup>
 
 </Project>

@@ -1,16 +1,12 @@
-﻿using OpenCommerce.Application.Query.User.GetUser;
-using OpenCommerce.Application.Query.User.GetUserAll;
-using OpenCommerce.Application.Query.User.GetUserLogin;
-using OpenCommerce.Domain.DataTransferObject;
+﻿using OpenCommerce.Application.Features.UserFeatures.CreateUser;
+using OpenCommerce.Application.Features.UserFeatures.GetAllUser;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace OpenCommerce.WebAPI.Controllers;
 
-
 [ApiController]
-[Route("api/user")]
+[Route("user")]
 public class UserController : ControllerBase
 {
     private readonly IMediator _mediator;
@@ -20,44 +16,18 @@ public class UserController : ControllerBase
         _mediator = mediator;
     }
 
-    [Authorize]
     [HttpGet]
-    [Route("getById/{id}")]
-    public async Task<ActionResult<JsonResponse<GetUserResponse>>> GetById(
-        string id,
-        CancellationToken cancellationToken)
+    public async Task<ActionResult<List<GetAllUserResponse>>> GetAll(CancellationToken cancellationToken)
     {
-        var response = await _mediator.Send(new GetUserRequest(id), cancellationToken);
+        var response = await _mediator.Send(new GetAllUserRequest(), cancellationToken);
         return Ok(response);
     }
-
-    [Authorize]
-    [HttpGet]
-    [Route("all")]
-    public async Task<ActionResult<JsonResponse<GetUserAllResponse>>> GetAll(CancellationToken cancellationToken)
-    {
-        var response = await _mediator.Send(new GetUserAllRequest(), cancellationToken);
-
-        if (response.IsError)
-        {
-            return BadRequest(response.Message);
-        }
-
-        return Ok(response);
-    }
-
-    [HttpPost("login")]
-    public async Task<ActionResult<JsonResponse<GetUserLoginResponse>>> Login(
-        GetUserLoginRequest request,
+    
+    [HttpPost]
+    public async Task<ActionResult<CreateUserResponse>> Create(CreateUserRequest request,
         CancellationToken cancellationToken)
     {
         var response = await _mediator.Send(request, cancellationToken);
-
-        if (response.IsError)
-        {
-            return BadRequest(response.Message);
-        }
-
         return Ok(response);
     }
 }

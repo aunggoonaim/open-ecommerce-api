@@ -8,19 +8,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\OpenCommerce.Application\OpenCommerce.Application.csproj" />
-        <ProjectReference Include="..\OpenCommerce.Persistence\OpenCommerce.Persistence.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <None Remove="Middleware\" />
-    </ItemGroup>
-    <ItemGroup>
-        <Folder Include="Middleware\" />
+      <ProjectReference Include="..\OpenCommerce.Application\OpenCommerce.Application.csproj" />
+      <ProjectReference Include="..\OpenCommerce.Persistence\OpenCommerce.Persistence.csproj" />
     </ItemGroup>
 
 </Project>
